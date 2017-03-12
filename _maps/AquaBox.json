@@ -1,0 +1,7 @@
+{
+    "map_name": "Crapture",
+    "map_path": "map_files/AquaBox",
+    "map_file": "AquaBox.dmm",
+    "minetype": "lavaland",
+    "transition_config": "default"
+}
