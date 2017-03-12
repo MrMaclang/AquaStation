@@ -1,12 +1,16 @@
-##/tg/station v1.0.1
-
-[![Build Status](https://travis-ci.org/tgstation/tgstation.png)](https://travis-ci.org/tgstation/tgstation) [![Krihelimeter](http://www.krihelinator.xyz/badge/tgstation/tgstation)](http://www.krihelinator.xyz)
+##AquaStation
 
 **Website:** http://www.tgstation13.org <BR>
-**Code:** https://github.com/tgstation/tgstation <BR>
+**Code:** https://github.com/Xhuis/AquaStation <BR>
 **Wiki** http://tgstation13.org/wiki/Main_Page <BR>
-**IRC:** irc://irc.rizon.net/coderbus or if you dont have an IRC client, you can click  [here](https://kiwiirc.com/client/irc.rizon.net:6667/?&theme=cli#coderbus).<BR>
+**IRC:** irc://irc.rizon.net/coderbus or if you don't have an IRC client, you can click [here](https://kiwiirc.com/client/irc.rizon.net:6667/?&theme=cli#coderbus).<BR>
 
+
+##PREFACE
+
+This is AquaStation, a fork of /tg/ code with an underwater setting. It's a work-in-progress, so please note that I haven't changed much in this readme. If you want to contribute, feel free!
+
+### -Xhuis
 
 ##DOWNLOADING
 
