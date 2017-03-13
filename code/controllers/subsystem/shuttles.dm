@@ -84,7 +84,7 @@ var/datum/controller/subsystem/shuttle/SSshuttle
 	var/turf/B = get_turf(transit_markers[2])
 	for(var/i in block(A, B))
 		var/turf/T = i
-		T.ChangeTurf(/turf/open/space)
+		T.ChangeTurf(/turf/open/floor/plating/ocean_floor)
 		transit_turfs += T
 		T.flags |= UNUSED_TRANSIT_TURF
 
