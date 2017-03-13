@@ -642,6 +642,47 @@
 	gib()
 	return(gain)
 
+/mob/living/carbon/human/water_act(obj/effect/water/W)
+	if(!stat && !internal && W.volume >= 80)
+		adjustOxyLoss(1) //glub glub
+		losebreath = max(1, losebreath)
+	var/pressure_damage = calculate_damage_from_water(W)
+	var/water_chill = calculate_chill_from_water(W)
+	adjustBruteLoss(pressure_damage)
+	bodytemperature = max(0, bodytemperature - water_chill)
+	if(W.depth >= 1000 && pressure_damage && stat)
+		src << "<span class='userdanger'>You suddenly feel as if you're entombed in stone. Your last thoughts are panicked as your body ruptures under the unbearable pressure.</span>"
+		visible_message("<span class='warning'>[src] implodes from the pressure!</span>")
+		gib() //You just went into a hundred atmospheres' worth of pressure without protection! Yay!
+	return TRUE
+
+/mob/living/carbon/human/proc/calculate_damage_from_water(obj/effect/water/W)
+	if(!W)
+		return
+	var/end_damage = 0
+	var/pressure_protection = calculate_affecting_pressure(W.pressure)
+	if(pressure_protection != ONE_ATMOSPHERE) //Ensures that damage is always 0 if they're protected
+		end_damage = round(pressure_protection / 1500)
+		if(W.depth >= 900) //Very deep waters kill pretty much instantaneously
+			end_damage *= 3
+	return end_damage
+
+/mob/living/carbon/human/proc/calculate_chill_from_water(obj/effect/water/W)
+	if(!W)
+		return
+	var/end_chill = 0
+	switch(W.depth)
+		if(DEPTH_LEVEL_SUNLIT to DEPTH_LEVEL_NORMAL)
+			end_chill += 5
+		if(DEPTH_LEVEL_NORMAL to DEPTH_LEVEL_DEEP)
+			end_chill += 10
+		if(DEPTH_LEVEL_DEEP to DEPTH_LEVEL_LIGHTLESS)
+			end_chill += 20
+		if(DEPTH_LEVEL_LIGHTLESS to DEPTH_LEVEL_ABYSSAL)
+			end_chill += 100
+	end_chill *= (1 - get_cold_protection(273.15)) //273.15K = 0C, which is the average temperature of deep ocean water according to Wikipedia
+	return end_chill
+
 /mob/living/carbon/human/help_shake_act(mob/living/carbon/M)
 	if(!istype(M))
 		return

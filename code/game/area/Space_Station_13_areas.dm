@@ -46,6 +46,18 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	ambientsounds = list('sound/ambience/ambispace.ogg','sound/ambience/title2.ogg')
 	blob_allowed = 0 //Eating up space doesn't count for victory as a blob.
 
+/area/open_ocean
+	name = "ocean floor"
+	icon_state = "ocean"
+	valid_territory = 0
+	blob_allowed = 0
+	outdoors = 1
+	always_unpowered = 1
+	requires_power = 1
+	power_light = 0
+	power_equip = 0
+	power_environ = 0
+
 /area/space/nearstation
 	icon_state = "space_near"
 	dynamic_lighting = DYNAMIC_LIGHTING_IFSTARLIGHT

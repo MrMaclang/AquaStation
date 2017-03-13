@@ -433,6 +433,9 @@ var/list/blood_splatter_icons = list()
 /atom/proc/emag_act()
 	return
 
+/atom/proc/water_act(obj/effect/water/water)
+	return
+
 /atom/proc/narsie_act()
 	return
 

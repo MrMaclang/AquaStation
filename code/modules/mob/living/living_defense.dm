@@ -299,6 +299,16 @@
 	gib()
 	return(gain)
 
+/mob/living/water_act(obj/effect/water/water)
+	if(water.volume <= 80) //Doesn't start affecting until at least 80% volume
+		return
+	adjustOxyLoss(1)
+	if(water.depth <= DEPTH_LEVEL_ABYSSAL)
+		visible_message("<span class='warning'>[src]'s body implodes under the intense pressure!</span>", "<span class='userdanger'>You suddenly feel as if you're entombed in stone. Your last \
+		thoughts are panicked as your body ruptures under the unbearable pressure.</span>")
+		gib()
+	return TRUE
+
 /mob/living/narsie_act()
 	if(status_flags & GODMODE)
 		return
