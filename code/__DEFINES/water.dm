@@ -5,3 +5,5 @@
 #define DEPTH_LEVEL_DEEP 750 //Very heavy and as cold as it can get. Won't outright kill yet. The limit of what a normal dive suit can protect from.
 #define DEPTH_LEVEL_LIGHTLESS 1000 //Crushes the unprotected very quickly. You'll need a power suit this deep.
 #define DEPTH_LEVEL_ABYSSAL INFINITY //As deep as it can go. Anything past here implodes instantly without adequate protection.
+
+#define NO_SPREAD_THRESHOLD 10 //Water won't spread out beyond this volume

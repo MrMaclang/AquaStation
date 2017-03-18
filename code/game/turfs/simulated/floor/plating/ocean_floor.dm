@@ -9,7 +9,7 @@
 /turf/open/floor/plating/ocean_floor/Initialize()
 	..()
 	if(simulated_depth)
-		new/obj/effect/water(src, simulated_depth, 100)
+		new/obj/effect/water(src, simulated_depth, 100, TRUE)
 
 /turf/open/floor/plating/ocean_floor/Destroy(force)
 	if(!force) //This is meant to replace space
